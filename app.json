@@ -15,19 +15,23 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#000"
+        "foregroundImage": "./assets/images/bgless-icon.png",
+        "backgroundColor": "#f72585"
       }
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
     },
-    "primaryColor": "#F72585"
+    "primaryColor": "#F72585",
+    "description": "A React Native project made Redux, TypeScript to fetch, listen, and store media from iTunes API.",
+    "githubUrl": "https://github.com/whygee-dev/itunes-seeker"
   }
 }

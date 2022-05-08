@@ -14,12 +14,6 @@ type Props = {
 const TracksList = (props: Props) => {
   const userList = useSelector(selectTracks);
 
-  const onAdd = async (track: TTrack) => {
-    if (userList.find((t) => t.trackId === track.trackId)) {
-      return;
-    }
-  };
-
   return (
     <ScrollView style={styles.scrollView} persistentScrollbar>
       {props.tracks.map((track) => {

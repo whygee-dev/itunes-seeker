@@ -34,7 +34,7 @@ const Filters = (props: Props) => {
         isVisible={modalOpen}
         onBackdropPress={() => onClose()}
         onSwipeComplete={() => onClose()}
-        swipeDirection="down"
+        swipeDirection="up"
       >
         <View style={styles.filters}>
           <View style={styles.swipableIndicator}></View>
@@ -74,9 +74,9 @@ const styles = StyleSheet.create({
     height: window.height / 3.25,
     backgroundColor: "#232356",
     position: "absolute",
-    bottom: 0,
-    borderTopStartRadius: 50,
-    borderTopEndRadius: 50,
+    top: 0,
+    borderBottomStartRadius: 50,
+    borderBottomEndRadius: 50,
     paddingTop: 50,
     paddingHorizontal: 20,
   },
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
 
   swipableIndicator: {
     position: "absolute",
-    top: 10,
+    bottom: 20,
     left: window.width / 2 - 25,
     width: 50,
     height: 5,

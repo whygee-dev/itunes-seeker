@@ -6,6 +6,7 @@ import { Audio } from "expo-av";
 import Text from "./Text";
 import * as Progress from "react-native-progress";
 import { SoundContext } from "../context/SoundProvider";
+import { INTERRUPTION_MODE_ANDROID_DUCK_OTHERS } from "expo-av/build/Audio";
 
 type Props = {
   uri: string;
@@ -18,7 +19,12 @@ const Player = (props: Props) => {
 
   const playAudio = async () => {
     setLoading(true);
+    await Audio.setAudioModeAsync({
+      playsInSilentModeIOS: true,
+      interruptionModeAndroid: INTERRUPTION_MODE_ANDROID_DUCK_OTHERS,
+    });
     const { sound } = await Audio.Sound.createAsync({ uri: props.uri });
+
     sound._onPlaybackStatusUpdate = (v) => setPlaybackStatus(v as AVPlaybackStatus);
     setSound(sound);
     await sound.playAsync();

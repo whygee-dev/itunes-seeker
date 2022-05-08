@@ -25,11 +25,9 @@ const Home = () => {
 
   const search = async (search: string) => {
     if (search.replace(/\s/g, "") === "") return;
-    console.log(`https://itunes.apple.com/search?&media=${filter.name}&country=FR&term=${search}`);
 
     setLoading(true);
     const results = (await (await axios.get(`https://itunes.apple.com/search?&media=${filter.name}&country=FR&term=${search}`)).data?.results) || [];
-    console.log(results);
     dispatch(setSearchTracks(results));
     dispatch(setFetchTimeout(null));
     setLoading(false);

@@ -11,7 +11,7 @@ const extrasSlice = createSlice({
   initialState: initialState,
   reducers: {
     setFetchTimeout(state, action: PayloadAction<ReturnType<typeof setTimeout> | null>) {
-      return { ...state, fetchTimeout: action.payload };
+      state.fetchTimeout = action.payload;
     },
   },
 });

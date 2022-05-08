@@ -11,7 +11,7 @@ const tracksSlice = createSlice({
   initialState: initialState,
   reducers: {
     setTracks(state, action: PayloadAction<Track[]>) {
-      return { ...state, tracks: action.payload };
+      state.tracks = action.payload;
     },
 
     addTrack(state, action: PayloadAction<Track>) {
@@ -19,21 +19,19 @@ const tracksSlice = createSlice({
 
       if (existing) return state;
 
-      const newTracks = [...state.tracks, action.payload];
-
-      return { ...state, tracks: newTracks };
+      state.tracks.push(action.payload);
     },
 
     removeTrack(state, action: PayloadAction<Track>) {
-      return { ...state, tracks: state.tracks.filter((t) => t.trackId !== action.payload.trackId) };
+      state.tracks = state.tracks.filter((t) => t.trackId !== action.payload.trackId);
     },
 
     setSearchTracks(state, action: PayloadAction<Track[]>) {
-      return { ...state, searchTracks: action.payload };
+      state.searchTracks = action.payload;
     },
 
     setSearchInput(state, action: PayloadAction<string>) {
-      return { ...state, searchInput: action.payload };
+      state.searchInput = action.payload;
     },
   },
 });
