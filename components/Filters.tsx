@@ -35,6 +35,7 @@ const Filters = (props: Props) => {
         onBackdropPress={() => onClose()}
         onSwipeComplete={() => onClose()}
         swipeDirection="up"
+        animationIn={"slideInDown"}
       >
         <View style={styles.filters}>
           <View style={styles.swipableIndicator}></View>
