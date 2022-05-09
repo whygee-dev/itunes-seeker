@@ -5,7 +5,7 @@ import Modal from "react-native-modal";
 import Text from "./Text";
 import { Filter } from "../redux/types";
 import { useDispatch, useSelector } from "react-redux";
-import { selectFilter, setFilter } from "../redux/slices/filtersSlice";
+import { selectFilter, setFilter } from "../redux/slices/tracksSlice";
 
 type Props = {
   filters: Filter[];

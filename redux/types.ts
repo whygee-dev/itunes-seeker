@@ -9,6 +9,7 @@ export type Track = {
   collectionId?: number;
   collectionName?: string;
   wrapperType?: string;
+  filter: string;
 };
 
 export type AVPlaybackStatus = {

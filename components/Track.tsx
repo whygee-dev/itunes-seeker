@@ -25,7 +25,7 @@ const Track = (props: Props) => {
   };
 
   const removeFromList = async () => {
-    await sound?.pauseAsync();
+    if (sound?._loaded) await sound?.pauseAsync();
     dispatch(removeTrack(props.track));
   };
 

@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { View, StyleSheet, TextInput, Dimensions, ActivityIndicator } from "react-native";
+import { View, StyleSheet, Dimensions, ActivityIndicator, TextInput } from "react-native";
 import { useDispatch } from "react-redux";
 import { useSelector } from "../redux/hooks";
-import { selectSearchInput, setSearchInput, selectSearchTracks, setSearchTracks } from "../redux/slices/tracksSlice";
-import Icon from "react-native-vector-icons/Ionicons";
+import { selectFilter, selectSearchInput, selectSearchTracks, setSearchInput, setSearchTracks } from "../redux/slices/tracksSlice";
 import Text from "../components/Text";
 import axios from "axios";
 import { selectFetchTimeout, setFetchTimeout } from "../redux/slices/extrasSlice";
@@ -11,7 +10,7 @@ import TracksList from "../components/TracksList";
 import { SoundContext } from "../context/SoundProvider";
 import Filters from "../components/Filters";
 import { FILTERS } from "../tools/constants";
-import { selectFilter } from "../redux/slices/filtersSlice";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const Home = () => {
   const searchTracks = useSelector(selectSearchTracks);
@@ -78,10 +77,10 @@ const Home = () => {
       {loading ? (
         <ActivityIndicator size={40} color="#fff" animating style={styles.loader} />
       ) : (
-        <View style={styles.searchResults}>
+        <View>
           {searchTracks && searchTracks.length !== 0 ? (
             <TracksList tracksRemovable={false} tracksAddable tracks={searchTracks} />
-          ) : (searchInput && searchInput.length === 0) || fetchTimeout ? (
+          ) : (searchInput && searchInput.length === 0) || fetchTimeout || !searchInput ? (
             <Text style={styles.fallbackText} size={25} numberOfLines={2}>
               Search for your favorite tracks
             </Text>

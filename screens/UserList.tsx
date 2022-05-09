@@ -1,27 +1,22 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Dimensions, StyleSheet, View, Image } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import TracksList from "../components/TracksList";
-import { selectTracks, setTracks } from "../redux/slices/tracksSlice";
+import { selectFilteredTracks } from "../redux/slices/tracksSlice";
 import Text from "../components/Text";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import Filters from "../components/Filters";
+import { FILTERS } from "../tools/constants";
 
 const UserList = () => {
-  const tracks = useSelector(selectTracks);
+  const tracks = useSelector(selectFilteredTracks);
   const dispatch = useDispatch();
-
-  // const getTracks = async () => {
-  //   const unparsedTracks = await AsyncStorage.getItem("tracks");
-  //   const tracks = unparsedTracks ? JSON.parse(unparsedTracks) : [];
-  //   dispatch(setTracks(tracks));
-  // };
-
-  // useEffect(() => {
-  //   getTracks();
-  // }, []);
 
   return (
     <View>
+      <View style={styles.filterContainer}>
+        <Filters filters={FILTERS}></Filters>
+      </View>
+
       {tracks.length === 0 ? (
         <View style={styles.emptyListContainer}>
           <Text style={styles.emptyText} size={24} numberOfLines={2}>
@@ -38,6 +33,18 @@ const UserList = () => {
 };
 
 const styles = StyleSheet.create({
+  filterContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    padding: 20,
+    position: "absolute",
+    top: 10,
+    width: "100%",
+    backgroundColor: "transparent",
+    zIndex: 2,
+    height: 95,
+  },
   emptyListContainer: {
     display: "flex",
     flexDirection: "column",

@@ -17,7 +17,7 @@ const TracksList = (props: Props) => {
   return (
     <ScrollView style={styles.scrollView} persistentScrollbar>
       {props.tracks.map((track) => {
-        const existing = userList.find((t) => t.trackId === track.trackId);
+        const existing = userList.find((t) => (t.trackId ? t.trackId === track.trackId : t.collectionId === track.collectionId));
 
         return (
           <Track

@@ -3148,11 +3148,6 @@ find-up@^5.0.0, find-up@~5.0.0:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
 
-flatted@^3.2.5:
-  version "3.2.5"
-  resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.5.tgz#76c8584f4fc843db64702a6bd04ab7a8bd666da3"
-  integrity sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg==
-
 flow-parser@0.*:
   version "0.175.1"
   resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.175.1.tgz#835a0ea46346c8bdd947e70b2814c2b613beb238"
@@ -3838,11 +3833,6 @@ jsesc@~0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
   integrity sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=
-
-jsog@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/jsog/-/jsog-1.0.7.tgz#b99f7331674807a7aecb3eb16f8aefbded27fb22"
-  integrity sha1-uZ9zMWdIB6euyz6xb4rvve0n+yI=
 
 json-parse-better-errors@^1.0.1:
   version "1.0.2"
